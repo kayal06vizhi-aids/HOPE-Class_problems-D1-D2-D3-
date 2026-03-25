@@ -1,0 +1,106 @@
+390-ELIMINATION GAME
+
+class Solution {
+    public int lastRemaining(int n) {
+        int start=1;
+        int step=1;
+        Boolean left=true;
+        while(n>1){
+            if(n%2==1||left){
+                start+=step;
+            }
+            step*=2;
+            n=n/2;
+            left=!left;
+
+        }
+        return start;
+    }
+}
+
+319-BULB SWITCHER
+
+class Solution {
+    public int bulbSwitch(int n) {
+        if(n<=1) return n;
+        return (int)Math.sqrt(n);
+    }
+}
+
+397-INTEGER REPLACEMENT
+
+class Solution {
+    public int integerReplacement(int n) {
+        long nu=n;
+        int c=0;
+        while(nu!=1){
+            if(nu%2==0){
+           nu/=2;
+            }else {
+                if(nu == 3 || nu % 4 == 1){
+                    nu -= 1;
+                } else {
+                    nu += 1;
+                }
+            }
+           c++;
+        }
+        return c;
+        
+    }
+}
+
+1518-WATER BOTTLES
+
+class Solution {
+    public int numWaterBottles(int numBottles, int numExchange) {
+       int res=numBottles;
+       while(numBottles>=numExchange){
+        int temp=numBottles/numExchange;
+        numBottles=numBottles%numExchange;
+        res+=temp;
+        numBottles=numBottles+temp;
+       }
+       return res;
+    }
+}
+
+66-PLUS ONE
+
+class Solution {
+    public int[] plusOne(int[] digits) {
+        int l = digits.length;
+
+        for (int i = l - 1; i >= 0; i--) {
+            if (digits[i] < 9) {
+                digits[i]++;
+                return digits;
+            }
+            digits[i] = 0;
+        }
+
+        
+        int[] res = new int[l + 1];
+        res[0] = 1;
+        return res;
+    }
+}
+
+657-ROBOT RETURN TO ORIGIN
+
+class Solution {
+    public boolean judgeCircle(String moves) {
+        if(moves.length()==1) return false;
+        int x=0,y=0;
+        for(int i=0;i<moves.length();i++){
+            char curr=moves.charAt(i);
+            if(curr=='U') y-=1;
+            else if(curr=='D') y+=1;
+            else if(curr=='L') x+=1;
+            else x-=1;
+        }
+        return (x==0 && y==0) ;
+    }
+}
+
+

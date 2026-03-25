@@ -1,0 +1,141 @@
+1217-MINIMUM COST TO MOVE CHIPS
+
+class Solution {
+    public int minCostToMoveChips(int[] position) {
+        int e=0,o=0;
+        for(int i=0;i<position.length;i++){
+            if(position[i]%2==0) o++;
+            else e++;
+        }
+        return (e>o?o:e);
+    }
+}
+
+2455-AVERAGE VALUE OF EVEN NUMBERS
+
+class Solution {
+    public int averageValue(int[] nums) {
+        int res=0;
+        int c=0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]%6==0){
+                res+=nums[i];
+                c++;
+            }
+            
+        }
+        if(res==0) return c;
+        else return res/c;
+    }
+}
+
+3232-DIGIT GAME
+
+class Solution {
+    public boolean canAliceWin(int[] nums) {
+        int sum=0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]<10) sum+=nums[i];
+            else sum-=nums[i];
+        }
+        return (sum!=0);
+    }
+}
+
+27-REMOVE ELEMENT
+
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        int k=0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]!=val){
+                nums[k]=nums[i];
+                k++;
+            }
+        }
+        return k;
+    }
+}
+
+1480-RUNNING SUM
+
+class Solution {
+    public int[] runningSum(int[] nums) {
+       int sum=0;
+       for(int i=0;i<nums.length;i++){
+        sum+=nums[i];
+        nums[i]=sum;
+       }
+       return nums;
+    }
+}
+
+1470-SHUFFLE THE ARRAY
+
+class Solution {
+    public int[] shuffle(int[] nums, int n) {
+        int[] arr=new int[2*n];
+        for(int i=0;i<n;i++){
+            arr[2*i]=nums[i];
+            arr[(2*i)+1]=nums[i+n];
+        }
+        return arr;
+    }
+}
+
+189-ROTATE ARRAY
+
+class Solution {
+    public void rotate(int[] nums, int k) {
+        int n=nums.length;
+        k=k%n;
+        reverse(nums,0,n-1);
+        reverse(nums,0,k-1);
+        reverse(nums,k,n-1);
+    }
+    public void reverse(int [] nums,int a,int b){
+        while(a<b){
+            int t=nums[a];
+            nums[a]=nums[b];
+            nums[b]=t;
+            a++;
+            b--;
+        }
+    }
+}
+
+283-MOVE ZERO
+
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int k=0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]!=0){
+                nums[k]=nums[i];
+                k++;
+            }
+        }
+        while(k<nums.length){
+            nums[k++]=0;
+        }
+
+    }
+}
+
+121-STOCK BUY AND SELL
+
+class Solution {
+    public int maxProfit(int[] prices) {
+        int buy=prices[0];
+        int pro=0;
+        for(int i=1;i<prices.length;i++){
+            if(prices[i]<buy){
+                buy=prices[i];
+            }
+            int cp=prices[i]-buy;
+            pro=Math.max(cp,pro);
+        }
+        return pro;
+    }
+}
+
