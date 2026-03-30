@@ -1,0 +1,43 @@
+ZIGZAG
+
+import java.util.*;
+public class zigzag {
+
+	public static void main(String[] args) {
+		
+           Scanner scn=new Scanner(System.in);
+           String str=scn.nextLine();
+           int n=scn.nextInt();
+           char[][] arr=new char[n][str.length()];
+           boolean dir=true;
+           int r=0,c=0;
+           for(int i=0;i<str.length();i++) {
+        	   arr[r][c]=str.charAt(i);
+        	   if(dir) {
+        		   if(r==n-1) {
+        			   dir=false;
+        			   r--;
+        			   c++;
+        		   }else {
+        		   r++;
+        		   }
+        	   }else {
+        		   if(r==0) {
+        			   dir=true;
+        			   r++;
+        		   }else {
+        		   c++;
+        		   r--;
+        	   }
+        	   }
+           }
+           for(int i=0;i<n;i++) {
+        	   for(int j=0;j<str.length();j++) {
+        		   if(Character.isLetter(arr[i][j])) {
+        			   System.out.print(arr[i][j]);
+        		   }
+        	   }
+           }
+
+    }
+}

@@ -1,0 +1,166 @@
+COUNT NUMBER OF WORDS
+
+import java.util.*;
+public class count {
+
+	public static void main(String[] args) {
+	
+           Scanner scn=new Scanner(System.in);
+           String str=scn.nextLine();
+           boolean flag=true;
+           int c=0;
+           for(int i=0;i<str.length();i++){
+           char ch=str.charAt(i);
+           if(ch!=' ') {
+        	   if(flag) {
+        		   c++;
+        		   flag=false;
+        	   }
+           }else {
+        	   flag=true;
+           }
+	}
+           System.out.print(c);
+
+    }
+}
+
+FREQUENCY OF EACH CHARACTERS
+
+import java.util.*;
+public class frequency {
+
+	public static void main(String[] args) {
+	
+           Scanner scn=new Scanner(System.in);
+           String str=scn.nextLine();
+           int[] freq=new int[256];
+           for(int i=0;i<str.length()-1;i++) {
+        	   char ch=str.charAt(i);
+        	   freq[ch]++;
+           }
+           for(int i=0;i<256;i++) {
+        	   if(freq[i]!=0) {
+        		   System.out.println((char)i+" "+":"+freq[i]);
+        	   }
+           }
+
+    }
+}
+
+without frequency array,
+
+import java.util.*;
+public class frequency {
+
+	public static void main(String[] args) {
+	
+           Scanner scn=new Scanner(System.in);
+           String str=scn.nextLine();
+           for(int i=0;i<str.length();i++) {
+        	   boolean flag=false;
+        	   for(int j=0;j<=i-1;j++) {
+        		   if(str.charAt(i)==str.charAt(j)) {
+        			   flag=true;
+        			   break;
+        		   }
+        	   }
+        	   if(flag) continue;
+        	   int count=1;
+        	   for(int k=i+1;k<str.length();k++) {
+        		   count++;
+        	   }
+           if(str.charAt(i)==' ') {
+        	   System.out.println("- :"+count);
+           }else {
+        	   System.out.println(str.charAt(i)+":"+count);
+           }
+           }
+
+    }
+}
+
+String reverse
+
+import java.util.Scanner;
+public class string{
+
+	public static void main(String[] args) {
+		Scanner scn=new Scanner(System.in);
+		String str=scn.nextLine();
+		int end=str.length();
+		String s="";
+		for(int i=str.length()-1;i>=0;i--) {
+			if(str.charAt(i)==' ') {
+			   for(int j=i+1;j<end;j++) {
+				s=s+str.charAt(j);
+			   }
+				s=s+" ";
+			    end=i;
+			}
+		}
+		if(end!=0) {
+			for(int i=0;i<end;i++) {
+				s=s+str.charAt(i);
+			}
+		}
+	
+		System.out.print(s);
+ 
+	}
+
+}
+
+Reduce space to one
+
+import java.util.*;
+public class singlespace {
+
+	public static void main(String[] args) {
+		Scanner scn=new Scanner(System.in);
+		String str=scn.nextLine();
+		String s="";
+		for(int i=0;i<str.length();i++) {
+            if(i!=str.length()-1) {
+            	if(str.charAt(i)==' ' && str.charAt(i+1)!=' ') {
+            		s=s+" ";
+            	}
+            }
+			if(str.charAt(i)!=' ') {
+				s=s+str.charAt(i);
+			}
+	
+		}
+		System.out.print(s);
+
+	}
+
+}
+
+unique letters
+
+import java.util.*;
+public class removed {
+
+	public static void main(String[] args) {
+	    Scanner scn=new Scanner(System.in);
+	    String str=scn.nextLine();
+	    String s="";
+	    boolean flag=false;
+	    for(int i=0;i<str.length();i++) {
+	    	flag=false;
+	    	char ch=str.charAt(i);
+	    	for(int k=0;k<s.length();k++) {
+	    		if(s.charAt(k)==ch) {
+	    			flag=true;
+	    		}
+	    	}
+	    	if(!flag) {
+	    		s=s+ch;
+	    	}
+	    }
+	    System.out.print(s);
+
+	}
+
+}
